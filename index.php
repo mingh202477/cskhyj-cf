@@ -93,7 +93,7 @@ $formattedCount = str_pad($count, 6, '0', STR_PAD_LEFT);
         <p><span>あなたは</span></p><div class="counter-box"><?php echo $formattedCount; ?></div><p><span>番目のお客様です！</span></p>
 
         <a href="web_clap.php">Web 拍手</a>
-        <a href="d.php"><オムライスキッチン/a>
+        <a href="d.php">オムライスキッチン</a>
         <h2>◆ お知らせ ◆アルを予定しています！</p>
         <p>時間は未定ですが、近</h2>
         <p>肌寒い季節になってきましたが、神々のみんなは元気にお過ごしですか？</p>
