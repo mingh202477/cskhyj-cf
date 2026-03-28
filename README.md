@@ -7,7 +7,7 @@
 如果你的验证图片加载不出来（我的服务器是这样的）
 请替换为(这个文件在lib/captcha.php)：
 </br>
-<?php
+<p><?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
@@ -54,3 +54,4 @@ for ($i = 0; $i < 80; $i++) {
 header('Content-Type: image/png');
 imagepng($im);
 imagedestroy($im);
+</P>
