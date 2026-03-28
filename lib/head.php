@@ -1,0 +1,1 @@
+<a href="/news.php">新闻发布</a>
