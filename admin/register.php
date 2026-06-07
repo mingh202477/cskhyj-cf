@@ -68,59 +68,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>管理注册</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>管理注册</title>
 </head>
+
 <body>
-<div align="center">
-    <h2>管理注册</h2>
-    <?php if ($register_enabled != 1): ?>
-        <p style="color:red;"><strong>系统当前关闭注册，请稍后再试。</strong></p>
-    <?php else: ?>
-        <?php if ($error): ?>
-            <p style="color:red;"><strong>错误：</strong><?php echo htmlspecialchars($error); ?></p>
+    <div align="center">
+        <h2>管理注册</h2>
+        <?php if ($register_enabled != 1): ?>
+            <p style="color:red;"><strong>系统当前关闭注册，请稍后再试。</strong></p>
+        <?php else: ?>
+            <?php if ($error): ?>
+                <p style="color:red;"><strong>错误：</strong><?php echo htmlspecialchars($error); ?></p>
+            <?php endif; ?>
+            <?php if ($success): ?>
+                <p style="color:green;"><strong><?php echo htmlspecialchars($success); ?></strong></p>
+            <?php endif; ?>
+            <form method="post" action="register.php">
+                <input type="hidden" name="action" value="register">
+                <table border="0" align="center">
+                    <tr>
+                        <td>用户名：</td>
+                        <td><input type="text" name="username" required value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>邮箱地址：</td>
+                        <td><input type="email" name="email" required value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>密码：</td>
+                        <td><input type="password" name="password" required minlength="6"></td>
+                    </tr>
+                    <tr>
+                        <td>确认密码：</td>
+                        <td><input type="password" name="confirm_password" required minlength="6"></td>
+                    </tr>
+                    <tr>
+                        <td>验证码：</td>
+                        <td>
+                            <input type="text" name="captcha" required maxlength="6" autocomplete="off" style="text-transform:uppercase">
+                            <img src="/../lib/captcha.php" alt="验证码" id="captchaImg" onclick="this.src='/../lib/captcha.php?t='+Math.random()" style="cursor:pointer; vertical-align:middle;">
+                            <a href="javascript:void(0)" onclick="document.getElementById('captchaImg').src='/../lib/captcha.php?t='+Math.random()">换一张</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><input type="submit" value="注 册"></td>
+                    </tr>
+                </table>
+            </form>
+            <p>
+                已有账号？ <a href="index.php">立即登录</a><br>
+
+            </p>
         <?php endif; ?>
-        <?php if ($success): ?>
-            <p style="color:green;"><strong><?php echo htmlspecialchars($success); ?></strong></p>
-        <?php endif; ?>
-        <form method="post" action="register.php">
-            <input type="hidden" name="action" value="register">
-            <table border="0" align="center">
-                <tr>
-                    <td>用户名：</td>
-                    <td><input type="text" name="username" required value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>"></td>
-                </tr>
-                <tr>
-                    <td>邮箱地址：</td>
-                    <td><input type="email" name="email" required value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>"></td>
-                </tr>
-                <tr>
-                    <td>密码：</td>
-                    <td><input type="password" name="password" required minlength="6"></td>
-                </tr>
-                <tr>
-                    <td>确认密码：</td>
-                    <td><input type="password" name="confirm_password" required minlength="6"></td>
-                </tr>
-                <tr>
-                    <td>验证码：</td>
-                    <td>
-                        <input type="text" name="captcha" required maxlength="6" autocomplete="off" style="text-transform:uppercase">
-                        <img src="/../lib/captcha.php" alt="验证码" id="captchaImg" onclick="this.src='/../lib/captcha.php?t='+Math.random()" style="cursor:pointer; vertical-align:middle;">
-                        <a href="javascript:void(0)" onclick="document.getElementById('captchaImg').src='/../lib/captcha.php?t='+Math.random()">换一张</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center"><input type="submit" value="注 册"></td>
-                </tr>
-            </table>
-        </form>
-        <p>
-            已有账号？ <a href="index.php">立即登录</a><br>
-            
-        </p>
-    <?php endif; ?>
-</div>
+    </div>
 </body>
+
 </html>
