@@ -72,3 +72,4 @@ header('Content-Type: image/png');
 imagepng($im);
 imagedestroy($im);
 ```
+本项目使用apache 2.0协议发布开源
