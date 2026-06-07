@@ -5,22 +5,19 @@ $yu = 'http://127.0.0.1/';
 $register_enabled = 1;   // 修改为 2 即可关闭注册
 
 // 数据库配置
-define('DB_HOST', 'localhost');       
-define('DB_USER', 'root');            
-define('DB_PASS', '');                
-define('DB_NAME', 'chaofan');  
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'chaofan');
 
 //配置电子邮件的SMTP
 $email_host = '';
-$SMTPAuth = true;//允许 SMTP 认证
+$SMTPAuth = true; //允许 SMTP 认证
 $email_Username = '';
 $email_Password = '';
-$email_SMTPSecure = 'ssl';// 允许 TLS 或者ssl协议
-$email_Port = 465;//服务器端口
+$email_SMTPSecure = 'ssl'; // 允许 TLS 或者ssl协议
+$email_Port = 465; //服务器端口
 //设定发件人(163要求与SMTP用户名一致)
 $setFrom1 = '';
 //设定回复地址(建议与发件人一致)
 $add1 = '';
-
-
-
